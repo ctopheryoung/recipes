@@ -59,12 +59,12 @@ public class TagTest {
 
   @Test
   public void all_returnsAllInstancesOfTag_true() {
-     Tag firstTag = new Tag("Spicy");
-     Tag secondTag = new Tag("BBQ");
-     firstTag.save();
-     secondTag.save();
-     assertTrue(Tag.all().contains(firstTag));
-     assertTrue(Tag.all().contains(secondTag));
+    Tag firstTag = new Tag("Spicy");
+    Tag secondTag = new Tag("BBQ");
+    firstTag.save();
+    secondTag.save();
+    assertTrue(Tag.all().contains(firstTag));
+    assertTrue(Tag.all().contains(secondTag));
   }
 
   @Test
@@ -74,5 +74,18 @@ public class TagTest {
     firstTag.save();
     secondTag.save();
     assertEquals(Tag.find(secondTag.getId()), secondTag);
+  }
+
+  @Test
+  public void find_returnsNullWhenNoTagFound_null() {
+    assertTrue(Tag.find(999) == null);
+  }
+
+  @Test
+  public void delete_deleteDeletesTag() {
+    Tag myTag = new Tag("Spicy");
+    myTag.save();
+    myTag.delete();
+    assertEquals(Tag.all().size(), 0);
   }
 }

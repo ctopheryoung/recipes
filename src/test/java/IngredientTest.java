@@ -57,62 +57,62 @@ public class IngredientTest {
     assertEquals(savedIngredient.getName(), "Love");
   }
 
-   @Test
-   public void all_returnsAllInstancesOfIngredient_true() {
-      Ingredient firstIngredient = new Ingredient("Love");
-      Ingredient secondIngredient = new Ingredient("Chili Powder");
-      firstIngredient.save();
-      secondIngredient.save();
-      assertTrue(Ingredient.all().contains(firstIngredient));
-      assertTrue(Ingredient.all().contains(secondIngredient));
-   }
+  @Test
+  public void all_returnsAllInstancesOfIngredient_true() {
+    Ingredient firstIngredient = new Ingredient("Love");
+    Ingredient secondIngredient = new Ingredient("Chili Powder");
+    firstIngredient.save();
+    secondIngredient.save();
+    assertTrue(Ingredient.all().contains(firstIngredient));
+    assertTrue(Ingredient.all().contains(secondIngredient));
+  }
 
-    @Test
-    public void find_returnsIngredientWithSameId_secondIngredient() {
-      Ingredient firstIngredient = new Ingredient("Love");
-      Ingredient secondIngredient = new Ingredient("Chili Powder");
-      firstIngredient.save();
-      secondIngredient.save();
-      assertEquals(Ingredient.find(secondIngredient.getId()), secondIngredient);
-    }
+  @Test
+  public void find_returnsIngredientWithSameId_secondIngredient() {
+    Ingredient firstIngredient = new Ingredient("Love");
+    Ingredient secondIngredient = new Ingredient("Chili Powder");
+    firstIngredient.save();
+    secondIngredient.save();
+    assertEquals(Ingredient.find(secondIngredient.getId()), secondIngredient);
+  }
 
- //  @Test
- //  public void find_returnsNullWhenNoIngredientFound_null() {
- //    assertTrue(Ingredient.find(999) == null);
- //  }
- //
- //   @Test
- //   public void delete_deleteDeletesIngredient() {
- //     Ingredient myIngredient = new Ingredient("Love");
- //     myIngredient.save();
- //     myIngredient.delete();
- //     assertEquals(Ingredient.all().size(), 0);
- //   }
- //
- //  @Test
- //  public void addCourse_addsCourseForIngredient() {
- //    Course myCourse = new Course("Intro to Brawling", "BRWL101");
- //    myCourse.save();
- //
- //    Ingredient myIngredient = new Ingredient("Love");
- //    myIngredient.save();
- //
- //    myIngredient.addCourse(myCourse);
- //    Course savedCourse = myIngredient.getCourses().get(0);
- //    assertTrue(myCourse.equals(savedCourse));
- //  }
- //
- //  @Test
- //  public void getCourses_returnsAllCourses_ArrayList() {
- //    Course myCourse = new Course("Intro to Brawling", "BRWL101");
- //    myCourse.save();
- //
- //    Ingredient myIngredient = new Ingredient("Love");
- //    myIngredient.save();
- //
- //    myIngredient.addCourse(myCourse);
- //    List<Course> savedCourse = myIngredient.getCourses();
- //    assertEquals(savedCourse.size(), 1);
- //  }
+  @Test
+  public void find_returnsNullWhenNoIngredientFound_null() {
+    assertTrue(Ingredient.find(999) == null);
+  }
+
+  @Test
+  public void delete_deleteDeletesIngredient() {
+    Ingredient myIngredient = new Ingredient("Love");
+    myIngredient.save();
+    myIngredient.delete();
+    assertEquals(Ingredient.all().size(), 0);
+  }
+
+//  @Test
+//  public void addCourse_addsCourseForIngredient() {
+//    Course myCourse = new Course("Intro to Brawling", "BRWL101");
+//    myCourse.save();
+//
+//    Ingredient myIngredient = new Ingredient("Love");
+//    myIngredient.save();
+//
+//    myIngredient.addCourse(myCourse);
+//    Course savedCourse = myIngredient.getCourses().get(0);
+//    assertTrue(myCourse.equals(savedCourse));
+//  }
+//
+//  @Test
+//  public void getCourses_returnsAllCourses_ArrayList() {
+//    Course myCourse = new Course("Intro to Brawling", "BRWL101");
+//    myCourse.save();
+//
+//    Ingredient myIngredient = new Ingredient("Love");
+//    myIngredient.save();
+//
+//    myIngredient.addCourse(myCourse);
+//    List<Course> savedCourse = myIngredient.getCourses();
+//    assertEquals(savedCourse.size(), 1);
+//  }
 
 }

@@ -52,7 +52,7 @@ public class Tag {
   }
 
   public static Tag find(int id) {
-    String sql = "SELECT * FROM tags where id=:id;";
+    String sql = "SELECT * FROM tags WHERE id=:id;";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql)
       .addParameter("id", id)
@@ -61,4 +61,17 @@ public class Tag {
   }
   //UPDATE
   //DELETE
+  public void delete() {
+  try(Connection con = DB.sql2o.open()) {
+    String sql = "DELETE FROM tags WHERE id = :id;";
+    con.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
+
+    String enrollmentsQuery = "DELETE FROM recipe_tags WHERE tag_id = :tagId";
+    con.createQuery(enrollmentsQuery)
+      .addParameter("tagId", id)
+      .executeUpdate();
+    }
+  }
 }
