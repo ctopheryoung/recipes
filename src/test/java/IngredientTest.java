@@ -88,31 +88,32 @@ public class IngredientTest {
     myIngredient.delete();
     assertEquals(Ingredient.all().size(), 0);
   }
+  //TESTS TO BE USED AFTER RECIPE CLASS IS SET UP
+  // @Test
+  // public void addRecipe_addsRecipeForIngredient() {
+  //   Recipe myRecipe = new Recipe(????);
+  //   myRecipe.save();
+  //
+  //   Ingredient myIngredient = new Ingredient("Love");
+  //   myIngredient.save();
+  //
+  //   myIngredient.addRecipe(myRecipe);
 
-//  @Test
-//  public void addCourse_addsCourseForIngredient() {
-//    Course myCourse = new Course("Intro to Brawling", "BRWL101");
-//    myCourse.save();
-//
-//    Ingredient myIngredient = new Ingredient("Love");
-//    myIngredient.save();
-//
-//    myIngredient.addCourse(myCourse);
-//    Course savedCourse = myIngredient.getCourses().get(0);
-//    assertTrue(myCourse.equals(savedCourse));
-//  }
-//
-//  @Test
-//  public void getCourses_returnsAllCourses_ArrayList() {
-//    Course myCourse = new Course("Intro to Brawling", "BRWL101");
-//    myCourse.save();
-//
-//    Ingredient myIngredient = new Ingredient("Love");
-//    myIngredient.save();
-//
-//    myIngredient.addCourse(myCourse);
-//    List<Course> savedCourse = myIngredient.getCourses();
-//    assertEquals(savedCourse.size(), 1);
-//  }
+  //   Recipe savedRecipe = myIngredient.getRecipes().get(0);
+  //   assertTrue(myRecipe.equals(savedRecipe));
+  // }
+  //
+  // @Test
+  // public void getRecipes_returnsRecipesThatUseIngredient_List() {
+  //   Recipe myRecipe = new Recipe(????);
+  //   myRecipe.save();
+  //
+  //   Ingredient myIngredient = new Ingredient("Love");
+  //   myIngredient.save();
+  //
+  //   myIngredient.addRecipe(myRecipe);
 
+  //   List<Recipe> savedRecipes = myIngredient.getRecipes();
+  //   assertEquals(savedRecipe.size(), 1);
+  // }
 }

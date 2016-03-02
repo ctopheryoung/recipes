@@ -88,4 +88,33 @@ public class TagTest {
     myTag.delete();
     assertEquals(Tag.all().size(), 0);
   }
+  //TESTS TO BE USED AFTER RECIPE CLASS IS SET UP
+  // @Test
+  // public void addRecipe_addsRecipeForTag() {
+  //   Recipe myRecipe = new Recipe(????);
+  //   myRecipe.save();
+  //
+  //   Tag myTag = new Tag("Spicy");
+  //   myTag.save();
+  //
+  //   myTag.addRecipe(myRecipe);
+
+  //   Recipe savedRecipe = myTag.getRecipes().get(0);
+  //   assertTrue(myRecipe.equals(savedRecipe));
+  // }
+  //
+  // @Test
+  // public void getRecipes_returnsRecipesThatUseTag_List() {
+  //   Recipe myRecipe = new Recipe(????);
+  //   myRecipe.save();
+  //
+  //   Tag myTag = new Tag("Love");
+  //   myTag.save();
+  //
+  //   myTag.addRecipe(myRecipe);
+
+  //   List<Recipe> savedRecipe = myTag.getRecipes();
+  //   assertEquals(savedRecipe.size(), 1);
+  // }
+
 }
