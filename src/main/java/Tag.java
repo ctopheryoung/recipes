@@ -50,6 +50,15 @@ public class Tag {
       .executeAndFetch(Tag.class);
     }
   }
+
+  public static Tag find(int id) {
+    String sql = "SELECT * FROM tags where id=:id;";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetchFirst(Tag.class);
+    }
+  }
   //UPDATE
   //DELETE
 }

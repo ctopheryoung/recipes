@@ -50,6 +50,15 @@ public class Ingredient {
       .executeAndFetch(Ingredient.class);
     }
   }
+
+  public static Ingredient find(int id) {
+    String sql = "SELECT * FROM ingredients where id=:id;";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetchFirst(Ingredient.class);
+    }
+  }
   //UPDATE
   //DELETE
 }

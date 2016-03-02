@@ -8,6 +8,14 @@ public class TagTest {
   public DatabaseRule database = new DatabaseRule();
 
   @Test
+  public void tag_instantiatesCorrectly_true() {
+    Tag testTag = new Tag("Spicy");
+    assertEquals(true, testTag instanceof Tag);
+    assertEquals("Spicy", testTag.getName());
+    assertEquals(Tag.all().size(), testTag.getId());
+  }
+
+  @Test
   public void all_emptyAtFirst() {
     assertEquals(Tag.all().size(), 0);
   }
@@ -39,5 +47,32 @@ public class TagTest {
     Tag myTag = new Tag("Spicy");
     myTag.save();
     assertEquals(Tag.all().get(0).getName(), "Spicy");
+  }
+
+  @Test
+  public void find_findsTagInDatabase_true() {
+    Tag testTag = new Tag("Spicy");
+    testTag.save();
+    Tag savedTag = Tag.find(testTag.getId());
+    assertEquals(savedTag.getName(), "Spicy");
+  }
+
+  @Test
+  public void all_returnsAllInstancesOfTag_true() {
+     Tag firstTag = new Tag("Spicy");
+     Tag secondTag = new Tag("BBQ");
+     firstTag.save();
+     secondTag.save();
+     assertTrue(Tag.all().contains(firstTag));
+     assertTrue(Tag.all().contains(secondTag));
+  }
+
+  @Test
+  public void find_returnsTagWithSameId_secondTag() {
+    Tag firstTag = new Tag("Spicy");
+    Tag secondTag = new Tag("BBQ");
+    firstTag.save();
+    secondTag.save();
+    assertEquals(Tag.find(secondTag.getId()), secondTag);
   }
 }

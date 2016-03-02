@@ -8,6 +8,14 @@ public class IngredientTest {
   public DatabaseRule database = new DatabaseRule();
 
   @Test
+  public void ingredient_instantiatesCorrectly_true() {
+    Ingredient testIngredient = new Ingredient("Love");
+    assertEquals(true, testIngredient instanceof Ingredient);
+    assertEquals("Love", testIngredient.getName());
+    assertEquals(Ingredient.all().size(), testIngredient.getId());
+  }
+
+  @Test
   public void all_emptyAtFirst() {
     assertEquals(Ingredient.all().size(), 0);
   }
@@ -36,56 +44,38 @@ public class IngredientTest {
 
   @Test
   public void save_savesIntoDatabase_true() {
-    Ingredient myIngredient = new Ingredient("Love");
-    myIngredient.save();
+    Ingredient testIngredient = new Ingredient("Love");
+    testIngredient.save();
     assertEquals(Ingredient.all().get(0).getName(), "Love");
   }
 
- //  @Test
- //  public void find_findsIngredientInDatabase_true() {
- //    Ingredient myIngredient = new Ingredient("Love");
- //    myIngredient.save();
- //    Ingredient savedIngredient = Ingredient.find(myIngredient.getId());
- //    assertEquals(savedIngredient.getName(), "Love");
- //  }
- //
- //  @Test
- //  public void student_instantiatesCorrectly_true() {
- //    Ingredient myIngredient = new Ingredient("Love");
- //    assertEquals(true, myIngredient instanceof Ingredient);
- //  }
- //
- //  @Test
- // public void student_instantiatesWithName_true() {
- //   Ingredient myIngredient = new Ingredient("Love");
- //   assertEquals("Love", myIngredient.getName());
- // }
- //
- // @Test
- // public void all_returnsAllInstancesOfIngredient_true() {
- //    Ingredient firstIngredient = new Ingredient("Love");
- //    Ingredient secondIngredient = new Ingredient("The Brawler");
- //    firstIngredient.save();
- //    secondIngredient.save();
- //    assertTrue(Ingredient.all().contains(firstIngredient));
- //    assertTrue(Ingredient.all().contains(secondIngredient));
- // }
- //
- // @Test
- //  public void newId_studentInstantiateWithAnID_true() {
- //    Ingredient myIngredient = new Ingredient("Love");
- //    assertEquals(Ingredient.all().size(), myIngredient.getId());
- //  }
- //
- //  @Test
- //  public void find_returnsIngredientWithSameId_secondIngredient() {
- //    Ingredient firstIngredient = new Ingredient("Love");
- //    Ingredient secondIngredient = new Ingredient("The Brawler");
- //    firstIngredient.save();
- //    secondIngredient.save();
- //    assertEquals(Ingredient.find(secondIngredient.getId()), secondIngredient);
- //  }
- //
+  @Test
+  public void find_findsIngredientInDatabase_true() {
+    Ingredient testIngredient = new Ingredient("Love");
+    testIngredient.save();
+    Ingredient savedIngredient = Ingredient.find(testIngredient.getId());
+    assertEquals(savedIngredient.getName(), "Love");
+  }
+
+   @Test
+   public void all_returnsAllInstancesOfIngredient_true() {
+      Ingredient firstIngredient = new Ingredient("Love");
+      Ingredient secondIngredient = new Ingredient("Chili Powder");
+      firstIngredient.save();
+      secondIngredient.save();
+      assertTrue(Ingredient.all().contains(firstIngredient));
+      assertTrue(Ingredient.all().contains(secondIngredient));
+   }
+
+    @Test
+    public void find_returnsIngredientWithSameId_secondIngredient() {
+      Ingredient firstIngredient = new Ingredient("Love");
+      Ingredient secondIngredient = new Ingredient("Chili Powder");
+      firstIngredient.save();
+      secondIngredient.save();
+      assertEquals(Ingredient.find(secondIngredient.getId()), secondIngredient);
+    }
+
  //  @Test
  //  public void find_returnsNullWhenNoIngredientFound_null() {
  //    assertTrue(Ingredient.find(999) == null);
