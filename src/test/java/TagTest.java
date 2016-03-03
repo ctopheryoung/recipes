@@ -88,6 +88,7 @@ public class TagTest {
     myTag.delete();
     assertEquals(Tag.all().size(), 0);
   }
+  
   //TESTS TO BE USED AFTER RECIPE CLASS IS SET UP
   // @Test
   // public void addRecipe_addsRecipeForTag() {
